@@ -40,6 +40,7 @@ GEM
     autoprefixer-rails (5.2.1.2)
       execjs
       json
+    bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.5.1)
@@ -47,6 +48,10 @@ GEM
       sass (>= 3.3.0)
     builder (3.2.2)
     byebug (6.0.2)
+    clearance (1.10.1)
+      bcrypt
+      email_validator (~> 1.4)
+      rails (>= 3.1)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -55,6 +60,8 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     debug_inspector (0.0.2)
+    email_validator (1.6.0)
+      activemodel
     erubis (2.7.0)
     execjs (2.6.0)
     globalid (0.3.6)
@@ -148,6 +155,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass
   byebug
+  clearance
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails

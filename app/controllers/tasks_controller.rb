@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  
+  before_action :require_login
   def index
     @tasks = Task.all
     @limit = if @tasks.size == 3
