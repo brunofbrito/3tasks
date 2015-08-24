@@ -13,9 +13,9 @@
     <% if signed_in? %>
       <ul class="nav navbar-nav navbar-right">
         <li>
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="http://api.adorable.io/avatars/16/abott@adorable.io.png" alt="User avatar" class="img-circle"> <%= current_user.email %> account</a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="http://api.adorable.io/avatars/16/abott@adorable.io.png" alt="User avatar" class="img-circle"> <%= current_user.name %>'s account</a>
           <ul class="dropdown-menu">
-            <li><a href="#">My Profile</a></li>
+            <li><a href="#">Edit Profile</a></li>
             <li role="separator" class="divider"></li>
             <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
           </ul>
