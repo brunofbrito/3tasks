@@ -1,9 +1,15 @@
 <h1 class="text-center">Choose your Background</h1>
 
-<div class="row">
-    <% @backgrounds.each do |background| %>
-      <div class="col-md-3">
-        <img src="<%= background %>" class="img-thumbnail make-room" />
-      </div>
-    <% end %>
+<%= form_for @user, html: {method: "patch", class: "form-group"} do |form| %>
+  <div class="row">
+      <% @backgrounds.each_with_index do |background, index| %>
+        <div class="col-md-3">
+          <label>
+           <input type="radio" name="background" value="<%= index %>" />
+           <img src="<%= background %>" class="img-thumbnail background make-room" />
+          </label>
+        </div>
+      <% end %>
   </div>
+  <%= form.submit 'Select background', class: "btn btn-default" %>
+<% end %>

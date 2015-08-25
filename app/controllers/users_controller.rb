@@ -15,13 +15,15 @@ class UsersController < Clearance::UsersController
     @backgrounds = backgrounds.map do |x|
       x.slice(3..10) + x.slice(18..-1)
     end
-    # /assets/bground/1.jpg
+    @user = User.find(params[:id])
+    @user.save
+#    redirect_to background_path(current_user)
   end
 
   private
 
   def edit_user_params
-    params.require(:user).permit(:name, :email, :password, :avatar)
+    params.require(:user).permit(:name, :email, :password, :avatar, :background)
   end
 
   end
