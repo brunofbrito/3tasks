@@ -1,5 +1,5 @@
 <div id="clearance" class="sign-up">
-  <h1 class="text-center"><%= t(".title") %></h1>
+  <h1><%= t(".title") %></h1>
 
   <%= form_for @user, html: {class: "form-group"} do |form| %>
     <%= render partial: '/users/form', object: form %>

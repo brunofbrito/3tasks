@@ -3,7 +3,7 @@
 <%= form_for @user, html: {method: "patch", class: "form-group"} do |form| %>
   <div class="row">
       <% @backgrounds.each_with_index do |background, index| %>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <label>
            <input type="radio" name="background" value="<%= index %>" />
            <img src="<%= background %>" class="img-thumbnail background make-room" />
