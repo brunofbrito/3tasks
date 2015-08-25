@@ -6,7 +6,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<% if signed_in? %>
+  <body style="background: url(<%= current_user.background.url %>)">
+<% else %>
+  <body>
+<% end %>
   
   <%= render "layouts/header" %>
 
