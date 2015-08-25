@@ -16,7 +16,7 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="<%= current_user.avatar.url %>" alt="User avatar" class="img-circle avatar"> <%= current_user.name %>'s account</a>
           <ul class="dropdown-menu">
             <li><%= link_to 'Edit profile', edit_user_path(current_user) %></li>
-            <li><a href="#">Change background</a></li>
+            <li><%= link_to 'Change background', background_path(current_user) %></li>
             <li role="separator" class="divider"></li>
             <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
           </ul>

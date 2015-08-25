@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :tasks
   resources :users, only: [:edit, :update]
   root to: 'tasks#index'
+  get 'user/:id/background' => 'users#background', as: :background
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
