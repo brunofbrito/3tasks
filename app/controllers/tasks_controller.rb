@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :require_login
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks
     @limit = if @tasks.size == 3
       "You can't add any more tasks for now. Let's get to work!"
     elsif @tasks.size == 2
@@ -14,7 +14,9 @@ class TasksController < ApplicationController
   end
 
   def create
-    Task.create(task_params)
+    @task = Task.create(task_params)
+    @task.user_id = current_user.id
+    @task.save
     redirect_to tasks_path
   end
 
@@ -43,7 +45,7 @@ class TasksController < ApplicationController
     # list between create and update. Also, you can specialize this method
     # with per-user checking of permissible attributes.
     def task_params
-      params.require(:task).permit(:name, :description)
+      params.require(:task).permit(:name, :description, :user_id => current_user)
     end
  
 end
