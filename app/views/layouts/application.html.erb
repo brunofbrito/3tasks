@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <% if signed_in? %>
-  <body style="background: url(<%= current_user.background.url %>)">
+  <body style="background: url(<%= current_user.background.url %>) no-repeat center center fixed; background-size: cover;">
 <% else %>
   <body>
 <% end %>
