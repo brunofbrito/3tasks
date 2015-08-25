@@ -13,7 +13,7 @@
     <% if signed_in? %>
       <ul class="nav navbar-nav navbar-right">
         <li>
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="http://api.adorable.io/avatars/16/abott@adorable.io.png" alt="User avatar" class="img-circle"> <%= current_user.name %>'s account</a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="<%= current_user.avatar.url %>" alt="User avatar" class="img-circle avatar"> <%= current_user.name %>'s account</a>
           <ul class="dropdown-menu">
             <li><%= link_to 'Edit profile', edit_user_path(current_user) %></li>
             <li role="separator" class="divider"></li>
