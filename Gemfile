@@ -28,6 +28,8 @@ gem 'autoprefixer-rails'
 gem 'clearance'
 gem 'carrierwave'
 gem "font-awesome-rails"
+gem 'ranked-model'
+gem 'jquery-ui-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

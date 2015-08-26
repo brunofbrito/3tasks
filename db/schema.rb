@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825013808) do
+ActiveRecord::Schema.define(version: 20150826013949) do
 
   create_table "tasks", force: :cascade do |t|
     t.string   "name"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20150825013808) do
     t.string   "remember_token",     limit: 128, null: false
     t.string   "avatar"
     t.string   "background"
+    t.string   "ourbackground"
   end
 
   add_index "users", ["email"], name: "index_users_on_email"
