@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :require_login
   def index
-    @tasks = current_user.tasks
+    @tasks = current_user.tasks.rank(:row_order).all
     @limit = if @tasks.size == 3
       "You can't add any more tasks for now. Let's get to work!"
     elsif @tasks.size == 2
@@ -12,6 +12,15 @@ class TasksController < ApplicationController
       "You can still add 3 more tasks for today!"
     end
   end
+
+  def update_row_order
+    @task = Task.find(task_params[:task_id])
+    @task.row_order_position = task_params[:row_order_position]
+    @task.save
+
+    render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
+  end
+
 
   def create
     @task = Task.create(task_params)
@@ -44,8 +53,13 @@ class TasksController < ApplicationController
     # just a good pattern since you'll be able to reuse the same permit
     # list between create and update. Also, you can specialize this method
     # with per-user checking of permissible attributes.
+
+    def set_task
+      @task = Task.find(params[:id])
+    end
+
     def task_params
-      params.require(:task).permit(:name, :description, :user_id => current_user)
+      params.require(:task).permit(:task_id, :name, :description, :row_order_position, :user_id => current_user)
     end
  
 end

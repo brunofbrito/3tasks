@@ -13,11 +13,30 @@
     <p class="text-center">Looks like you have enough tasks to keep you busy. Get to work!</p>
   <% end %>
 
-  <ul class="list-unstyled">
+<table class="table table-bordered table-striped" id="sortable">
+  <thead>
+    <tr>
+      <th>
+        Task
+      </th>
+      <th>
+        Actions
+      </th>
+    </tr>
+  </thead>
+  <tbody>
     <% @tasks.each do |task| %>
-      <li><%= task.name %> | <%=link_to "Show", task_path(task) %> | <%=link_to "Mark as Completed", task_path(task), :method => :delete %></li>
+      <tr data-item-id=<%= "#{task.id}" %> class="item">
+        <td>
+          <%= link_to task.name, task_path(task) %>
+        </td>
+        <td>
+          <%= link_to 'Mark as Completed', task_path(task), :method => :delete, :class => 'btn btn-default pull-right' %>
+        </td>
+      </tr>
     <% end %>
-  </ul>
+  </tbody>
+</table>
   
   <div id="flash">
     <% flash.each do |key, value| %>

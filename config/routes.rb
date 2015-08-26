@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :tasks
+  resources :tasks do
+    post :update_row_order, on: :collection
+  end
   resources :users, only: [:edit, :update]
   root to: 'tasks#index'
   # The priority is based upon order of creation: first created -> highest priority.
