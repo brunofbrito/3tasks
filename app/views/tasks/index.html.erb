@@ -14,16 +14,6 @@
   <% end %>
 
 <table class="table table-bordered table-striped" id="sortable">
-  <thead>
-    <tr>
-      <th>
-        Task
-      </th>
-      <th>
-        Actions
-      </th>
-    </tr>
-  </thead>
   <tbody>
     <% @tasks.each do |task| %>
       <tr data-item-id=<%= "#{task.id}" %> class="item">
