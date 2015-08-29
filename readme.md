@@ -3,3 +3,5 @@
 I love task managers, but they can get a bit overwhelming at times… so I created this app!
 
 3 Tasks has a very simple approach: you can add up to 3 tasks a day and that’s it.
+
+<a href="https://ancient-gorge-6868.herokuapp.com" target="_blank">You can try it out here.</a>
