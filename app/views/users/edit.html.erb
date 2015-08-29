@@ -10,18 +10,18 @@
     <%= form.label(:background, :"Upload your background")  %>
     <%= form.file_field :background %><br>
 
-    <p>... or choose one of ours!</p>
+   <!--  <p>... or choose one of ours!</p>
 
     <div class="row">
-      <% @backgrounds.each_with_index do |background, index| %>
+      <%# @backgrounds.each_with_index do |background, index| %>
         <div class="col-md-4">
-          <label for="background-<%= index %>">
-           <input type="radio" id="background-<%= index %>" name="ourbackground" value="<%= background %>" />
-           <img src="<%= background %>" class="img-thumbnail background make-room" />
+          <label for="background-<%#= index %>">
+           <input type="radio" id="background-<%#= index %>" name="ourbackground" value="<%#= background %>" />
+           <img src="<%#= background %>" class="img-thumbnail background make-room" />
           </label>
         </div>
-      <% end %>
-    </div>
+      <%# end %>
+    </div> -->
 
     <div class="submit-field">
       <%= form.submit 'Update', class:"btn btn-default" %>
