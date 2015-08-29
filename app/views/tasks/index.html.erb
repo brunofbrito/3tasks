@@ -1,7 +1,9 @@
 <% if signed_in? %>
   <% if @tasks.size == 3 %>
-    <p class="text-center task-left">You can't add any more tasks, get to work!</p>
+    <hr>
     <%= render "layouts/tasktable" %>
+    <hr>
+    <p class="text-center task-description">You can't add any more tasks, get to work!</p>
   <% elsif @tasks.size == 2  %>
     <div class="add-task-container text-center">
       <%= link_to '<i class="fa fa-plus-square-o"> Add a Task</i>'.html_safe, new_task_path, {class: "add-a-task"} %>
