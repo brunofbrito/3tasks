@@ -1,11 +1,10 @@
 <% if signed_in? %>
   <% if @tasks.size == 3 %>
-    <p class="text-center">You can't add any more tasks, get to work!</p>
+    <p class="text-center task-left">You can't add any more tasks, get to work!</p>
     <%= render "layouts/tasktable" %>
   <% elsif @tasks.size == 2  %>
     <div class="add-task-container text-center">
-      <i class="fa fa-plus-square-o"></i>
-      <%= link_to 'Add a Task', new_task_path, {class: "add-a-task"} %>
+      <%= link_to '<i class="fa fa-plus-square-o"> Add a Task</i>'.html_safe, new_task_path, {class: "add-a-task"} %>
     </div>
     <hr>
     <%= render "layouts/tasktable" %>
@@ -17,8 +16,7 @@
     <hr>
   <% elsif @tasks.size == 1  %>
     <div class="add-task-container text-center">
-      <i class="fa fa-plus-square-o"></i>
-      <%= link_to 'Add a Task', new_task_path, {class: "add-a-task"} %>
+      <%= link_to '<i class="fa fa-plus-square-o"> Add a Task</i>'.html_safe, new_task_path, {class: "add-a-task"} %>
     </div>
     <hr>
     <%= render "layouts/tasktable" %>
@@ -30,8 +28,7 @@
     <hr>
   <% else %>
     <div class="add-task-container text-center">
-      <i class="fa fa-plus-square-o"></i>
-      <%= link_to 'Add a Task', new_task_path, {class: "add-a-task"} %>
+      <%= link_to '<i class="fa fa-plus-square-o"> Add a Task</i>'.html_safe, new_task_path, {class: "add-a-task"} %>
     </div>
     <hr>
     <div class="task-number-container">

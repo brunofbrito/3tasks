@@ -6,8 +6,8 @@
           <%= link_to task.name, task_path(task) %>
         </td>
         <td>
-          <%= link_to 'Edit', edit_task_path(task), :class => 'btn btn-default' %>
-          <%= link_to 'Mark as Completed', task_path(task), :method => :delete, :class => 'btn btn-default pull-right' %>
+          <%= link_to '<i class="fa fa-check"></i>'.html_safe, task_path(task), :method => :delete, :class => 'pull-right' %>
+          <%= link_to '<i class="fa fa-pencil-square"></i>'.html_safe, edit_task_path(task), :class => 'pull-right space-between' %>
         </td>
       </tr>
     <% end %>
