@@ -1,32 +1,31 @@
 <% if signed_in? %>
-  <% if @tasks.size < 3 %>
-  <p class="text-center"><%= @limit %></p>
-  <hr>
-    <%= form_for :task, html: {class: "form-group"} do |f| %>
-    <%= f.label :name %> 
-    <%= f.text_field :name, class:"form-control" %>
-    <%= f.label :description %> 
-    <%= f.text_field :description, class:"form-control" %><br>
-    <%= f.submit "Create", class: "btn btn-default" %>
-    <% end %>
+  <% if @tasks.size == 3 %>
+    <p class="text-center">You can't add any more tasks, get to work!</p>
+    <hr>
+  <% elsif @tasks.size == 2  %>
+    <%= link_to 'Add a Task', new_task_path, {class: "add-a-task"} %>
+    <hr>
+    <%= render "layouts/tasktable" %>
+    <hr>
+    <p class="text-center"><span class="task-number">1</span></p>
+    <p class="text-center task-left">task left</p>
+    <hr>
+  <% elsif @tasks.size == 1  %>
+    <div class="add-task-container text-center">
+      <i class="fa fa-plus-square-o"></i>
+      <%= link_to 'Add a Task', new_task_path, {class: "add-a-task"} %>
+    </div>
+    <hr>
+    <%= render "layouts/tasktable" %>
+    <hr>
+    <div class="task-number-container">
+      <p class="text-center"><span class="task-number">2</span></p>
+      <p class="text-center task-left">tasks left</p>
+    </div>
+    <hr>
   <% else %>
-    <p class="text-center">Looks like you have enough tasks to keep you busy. Get to work!</p>
+    <p class="text-center">3 tasks left!</p>
   <% end %>
-
-<table class="table table-bordered table-striped" id="sortable">
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr data-item-id=<%= "#{task.id}" %> class="item">
-        <td>
-          <%= link_to task.name, task_path(task) %>
-        </td>
-        <td>
-          <%= link_to 'Mark as Completed', task_path(task), :method => :delete, :class => 'btn btn-default pull-right' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
   
   <div id="flash">
     <% flash.each do |key, value| %>
