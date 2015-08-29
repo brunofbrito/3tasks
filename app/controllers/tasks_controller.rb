@@ -2,15 +2,10 @@ class TasksController < ApplicationController
   before_action :require_login
   def index
     @tasks = current_user.tasks.rank(:row_order).all
-    @limit = if @tasks.size == 3
-      "You can't add any more tasks for now. Let's get to work!"
-    elsif @tasks.size == 2
-      "You can still add 1 lovely task for today!"
-    elsif @tasks.size == 1
-      "You can still add 2 more tasks for today!"
-    else
-      "You can still add 3 more tasks for today!"
-    end
+  end
+
+  def new
+    @task = Task.new
   end
 
   def update_row_order
@@ -20,7 +15,6 @@ class TasksController < ApplicationController
 
     render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
   end
-
 
   def create
     @task = Task.create(task_params)
