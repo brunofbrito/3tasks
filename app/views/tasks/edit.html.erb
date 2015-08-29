@@ -1,5 +1,5 @@
-  <%= form_for :task, html: {method: "patch", class: "form-group"} do |f| %>
-  <%= f.label :name %> 
+  <%= form_for @task, html: {method: "patch", class: "form-group"} do |f| %>
+  <%= f.label :name %>
   <%= f.text_field :name, class:"form-control" %>
   <%= f.label :description %> 
   <%= f.text_field :description, class:"form-control" %><br>

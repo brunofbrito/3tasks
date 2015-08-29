@@ -4,6 +4,10 @@ class TasksController < ApplicationController
     @tasks = current_user.tasks.rank(:row_order).all
   end
 
+  def new
+    @task = Task.new
+  end
+
   def update_row_order
     @task = Task.find(task_params[:task_id])
     @task.row_order_position = task_params[:row_order_position]
